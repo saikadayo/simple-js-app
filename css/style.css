@@ -1,0 +1,38 @@
+/* 
+Test Color Palette
+light bg - ebf5fe
+link - 0d395e
+hover - 0461cf
+h1 - 0461cf
+ */
+
+ :root {
+    --light-background-color: #ebf5fe;
+    --primary-color: #0461cf;
+    --secondary-color: #0d395e;
+    --text-color: #2b2b2b;
+    --white: #fff;
+    --accent-color: #cf2f77;
+}
+  
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--white);
+    font-family: "Onest", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--text-color);
+    margin: 20px 30px;
+}
+  
+.pokemon_name {
+    font-weight: 600;
+}
+
+.pokemon_height {
+    color: var(--accent-color);
+}
