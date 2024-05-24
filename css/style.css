@@ -36,3 +36,22 @@ body {
 .pokemon_height {
     color: var(--accent-color);
 }
+
+.pokemon-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.button-class {
+    background-color: #e8e8e8;
+    border: none;
+    color: var(--text-color);
+    padding: 15px 25px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    width: 250px;
+  }
