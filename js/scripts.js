@@ -1,15 +1,25 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
 
-  // Starter Pokemon List
-  pokemonList = [
-      { name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison'] },
-      { name: 'Charmander', height: 0.6, type: ['fire'] },
-      { name: 'Squirtle', height: 0.5, type: ['water'] },
-      { name: 'Caterpie', height: 0.3, type: ['bug'] },
-      { name: 'Weedle', height: 0.3, type: ['bug', 'poison'] },
-      { name: 'Pidgey', height: 0.3, type: ['normal', 'flying'] }
-  ];
+  function getList() {
+    return fetch('https://pokeapi.co/api/v2/pokemon/')
+    .then((response) => 
+        response.json()
+    )
+    .then((pokemon) => {
+        pokemon.results.forEach(( (pokemon) => {
+        let p = {
+            name: pokemon.name,
+            url: pokemon.url
+        }
+        add(p)
+      }))
+      })
+      .catch((e) => {
+        console.log(e)
+      }
+    )
+  }
 
   function getAll() {
       return pokemonList;
@@ -41,14 +51,18 @@ let pokemonRepository = (function () {
   return {
       add: add,
       getAll: getAll,
-      addListItem: addListItem
+      addListItem: addListItem,
+      getList: getList
   };
 })();
 
 // Using forEach() to write Pokemon name and height if their height is 0.7 or bigger
+
+pokemonRepository.getList().then( () => {
 pokemonRepository.getAll().forEach(pokemon => {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.addListItem(pokemon);
 });
+  });
 
 // Output to print the formatted list with special text
 function output(name, height, isBig) {
