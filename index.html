@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simple JS App</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +15,10 @@
     <main>
     <h1>Pokédex</h1>
     <ul class='pokemon-list'></ul>
+    <div id="modal-container"></div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/polyfill.min.js"></script> 
+    <script src="js/fetch.umd.js"></script> 
     <script src="js/scripts.js"></script> 
   </body>
 </html>
