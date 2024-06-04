@@ -1,0 +1,9 @@
+let pokemonRepository=function(){let t=[],e=$("#modal-container");function i(e){"object"==typeof e&&"name"in e?t.push(e):console.log("pokemon is not correct")}function o(){return t}function n(t){let e=t.detailsUrl;return $.ajax(e,{dataType:"json"}).done(function(e){t.id=e.id,t.imageUrl=e.sprites.front_default,t.imageUrlBack=e.sprites.back_default,t.height=e.height,t.weight=e.weight,t.types=e.types,t.abilities=e.abilities}).fail(function(t){console.error(t)})}function a(t){n(t).then(function(){var i;i=t,e.empty(),$("<div>").addClass("modal"),$("<button>").addClass("modal-close").text("Close").on("click",l),$(".modal-title").html(i.name),$(".modal-body").html(`
+    <h6># ${i.id}</h6>
+    <img src=${i.imageUrl} width="96" height="96">
+    <img src=${i.imageUrlBack} width="96" height="96">
+    <p><strong>Height</strong>: ${i.height}</p>
+    <p><strong>Weight</strong>: ${i.weight}</p>
+    <p><strong>Type</strong>: ${i.types.map(t=>t.type.name).join(", ")}</p>
+    <p><strong>Abilities</strong>: ${i.abilities.map(t=>t.ability.name).join(", ")}</p>
+    `)})}function l(){e.removeClass("is-visible")}return $(window).on("keydown",function(t){"Escape"===t.key&&e.hasClass("is-visible")&&l()}),e.on("click",function(t){t.target===e[0]&&l()}),{loadList:function t(){return $.ajax("https://pokeapi.co/api/v2/pokemon/?limit=150",{dataType:"json"}).done(function(t){t.results.forEach(function(t){let e={name:t.name,detailsUrl:t.url};i(e),console.log(e)})}).fail(function(t){console.error(t)})},getAll:o,addListItem:function t(e){let i=$("#pokemon-list"),o=$("<li>"),n=$("<button>").text(e.name).addClass("btn btn-light").attr("data-toggle","modal").attr("data-target","#exampleModal");o.addClass("list-group-item flex-fill col-xs-6 col-sm-4").append(n),i.append(o),n.on("click",function(){a(e)})},loadDetails:n,add:i,showDetails:a}}();pokemonRepository.loadList().then(function(){pokemonRepository.getAll().forEach(function(t){pokemonRepository.addListItem(t)})});

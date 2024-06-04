@@ -13,9 +13,13 @@ h1 - 0461cf
     --text-color: #2b2b2b;
     --white: #fff;
     --accent-color: #cf2f77;
-}
+  }
+
+  * {
+    box-sizing: border-box;
+  }
   
-body {
+  body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -23,35 +27,56 @@ body {
     font-family: "Onest", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 18px;
     color: var(--text-color);
-    margin: 20px 30px;
-}
-  
-.pokemon_name {
-    font-weight: 600;
-}
-
-.pokemon_height {
-    color: var(--accent-color);
-}
-
-.pokemon-list {
-    list-style: none;
     margin: 0;
-    padding: 0;
-}
+  }
 
-.button-class {
-    background-color: #e8e8e8;
+  main {
+    margin: 20px 30px;
+  }
+
+  .btn-light {
+    background-color: var(--light-background-color);
     border: none;
     color: var(--text-color);
     padding: 15px 25px;
     text-align: left;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 4px;
     width: 250px;
+  }
+
+  .btn-light:hover, .btn-light:active, .btn-light:visited {
+    background: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+  }
+
+  .btn-light::first-letter, .modal-title::first-letter {
+    text-transform: uppercase;
+  }
+
+  .modal-title {
+    color: var(--primary-color);
+  }
+
+  .navbar-brand {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .list-group {
+    display: flex;
+    text-align: center;
+  }
+
+  .list-group-item {
+    border: none;
   }
